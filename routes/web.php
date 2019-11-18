@@ -24,4 +24,6 @@ Route::get('/cars/create', 'CarsController@create');
 Route::post('/cars', 'CarsController@store');
 Route::delete('/cars/{car}', 'CarsController@destroy');
 Route::get('/cars/{car}/edit', 'CarsController@edit');
-Route::patch('/cars/{car}', 'CarsController@update');
+Route::patch('/cars/{car}', 'CarsController@update')->name('cars.update');
+
+Route::patch('/cars/{car}/', 'CarsController@default')->name('cars.default');

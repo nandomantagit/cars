@@ -43,10 +43,16 @@
                             @method('delete')
                             @csrf
                             <button type="submit" class="btn btn-sm btn-danger" class="in-line" onclick="return confirm('Hapus data ini?')">Delete</button>
+                            </form>
 
-                            <a href="" class="btn btn-sm btn-info" class="in-line">Default</a>
+                            <form action="{{ route('cars.default', $car) }}" method="post" class=d-inline>
+                            @method('patch')
+                            @csrf
+                            
+                            <button type="submit" class="btn btn-sm btn-info" class="in-line" onclick="return confirm('data ini akan menjadi default anda yakin?')">Default</button>
+                            </form>
 
-                          </form>
+                          
                         </td>
                     </tr>
                     @endforeach 

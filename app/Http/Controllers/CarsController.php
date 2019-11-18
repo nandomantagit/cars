@@ -80,4 +80,27 @@ class CarsController extends Controller
         Car::destroy($car->id);
         return redirect('/cars')->with('status', 'Data Mobil Berhasil Dihapus!');
     }
+
+
+     public function default(Request $request, Car $car)
+    {
+        
+        $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'produced_on' => 'required',
+            'email' => 'required'
+         ]);
+
+        Car::where('id', $car->id) // gimana ya caranya kwkwkw?
+                ->update([
+                    'make' => $request->make,
+                    'model' => $request->model,
+                    'produced_on' => $request->produced_on,
+                    'email' => $request->email
+                ]);
+        return redirect('/cars')->with('status', 'Data menjadi Default!');
+    }
+
+
 }
